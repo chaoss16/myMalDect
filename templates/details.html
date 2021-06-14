@@ -1,0 +1,52 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>详情</title>
+</head>
+
+<body>
+
+<h2>检测结果(0:Malware,1:Begin)</h2>
+
+
+<!-- <ol>
+{% for entry in entries %}
+    <li><a href='/files/{{entry}}'>{{entry}}</a>
+{% endfor %}
+</ol> -->
+
+<!-- <ol>
+    <li>knn_result:{{results[0]}}
+    <li>nb_result:{{results[1]}}
+	<li>dt_result:{{results[2]}}
+
+</ol> -->
+
+<table border="1">
+    <tr>
+        <th>apk_id</th>
+        <th>apk_name</th>
+        <th>knn_result</th>
+        <th>nb_result</th>
+        <th>dt_result</th>
+    </tr>
+
+{% for i in range(100) %}
+    <tr>
+        <th>{{i+1}}</th>
+        <th>{{apk_name_list[i]}}</th>
+
+    {% for r in results[i] %}
+        <th>{{r}}</th>
+    {% endfor%}
+    </tr>
+{% endfor %}
+</table>
+
+
+
+
+<a href='/'>返回主页</a>
+
+</body>
+</html>

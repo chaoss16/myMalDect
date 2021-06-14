@@ -1,0 +1,28 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>文件上传</title>
+</head>
+
+<!-- 定义上传文件表单 form，使用 POST 方法提交给服务端 /upload 页面处理，属性 enctype=“multipart/form-data” 表示表单中包含有上传文件的数据需要处理 -->
+<body>
+<h1>Android恶意软件检测系统首页</h1>
+<h2>上传文件</h2>
+<form action="/upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" class="input">
+    <input type="submit" value="上传" class="input button">
+</form>
+
+
+<!-- 访问路径 / 时，处理函数 index 列出目录 upload 下所有的文件名，作为参数传给首页的模板 index.html。假设当前 upload 目录下存在 3 个文件: a.txt、b.txt、c.txt，则 entries 为 [‘a.txt’, ‘b.txt’, ‘c.txt’]，页面模板被渲染为 -->
+<h2>文件列表</h2>
+<ol>
+{% for entry in entries %}
+    <li><a href='/files/{{entry}}'>{{entry}}</a>
+{% endfor %}
+</ol>
+
+<a href='/check'>一键检测</a>
+
+</body>
+</html>
